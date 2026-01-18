@@ -11,16 +11,13 @@ export default defineConfig({
 	site: siteUrl,
 	output: 'static',
 	adapter: cloudflare(),
-	prefetch: {
-		prefetchAll: true,
-		defaultStrategy: 'hover',
-	},
-	experimental: {
-		clientPrerender: true,
-	},
 	integrations: [
 		starlight({
 			title: siteConfig.title,
+			defaultLocale: 'root',
+			locales: {
+				root: { label: '한국어', lang: 'ko-KR' }
+			},
 			customCss: ['./src/styles/custom.css'],
 			social: [
 				{
@@ -30,9 +27,8 @@ export default defineConfig({
 				},
 			],
 			sidebar: [
-				{ label: '개요', autogenerate: { directory: 'overview' } },
-				{ label: '핵심 기술', autogenerate: { directory: 'core-technologies' } },
-				{ label: '미래 전망', autogenerate: { directory: 'future-outlook' } },
+				{ label: '디지털 자산 및 기술 트렌드', autogenerate: { directory: 'digital-asset-trends' } },
+				{ label: 'MZ세대 특화 실전 투자 전략', autogenerate: { directory: 'practical-investment-models' } },
 			],
 		}),
 	],
